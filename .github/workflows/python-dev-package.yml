@@ -1,0 +1,23 @@
+name: DEV Package and TestPyPi Upload
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and publish to pypi
+        uses: JRubics/poetry-publish@v2.0
+        with:
+          pypi_token: ${{ secrets.PYPI_TEST_TOKEN }}
+          python_version: ${{ env.PYTHON_BUILD_VERSION }}
+          repository_name: "testpypi"
+          repository_url: "https://test.pypi.org/legacy/"
