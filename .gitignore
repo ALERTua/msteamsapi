@@ -1,0 +1,13 @@
+.venv*/
+.idea/
+dist/
+logs/
+.tox/
+.pytest_cache/
+
+*.pyc
+tryouts*.py
+*.db
+.env
+
+poetry.lock
