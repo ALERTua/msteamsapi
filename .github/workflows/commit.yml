@@ -34,7 +34,7 @@ jobs:
         run: poetry run tox -e py3
 
   py2:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     strategy:
       matrix:
         python-version: [2.7]
@@ -44,7 +44,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v3
         with:
           python-version: ${{ matrix.python-version }}
 
