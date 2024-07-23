@@ -2,11 +2,11 @@
 import os
 import sys
 
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
 from msteamsapi import ContainerStyle, FactSet, Container, AdaptiveCard, TeamsWebhook, TextSize, TextWeight
 
-load_dotenv()
+# load_dotenv()
 
 MSTEAMS_TEST_HOOK = os.getenv("MSTEAMS_TEST_HOOK")
 MSTEAMS_TEST_EMAIL = os.getenv("MSTEAMS_TEST_EMAIL")
