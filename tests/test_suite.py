@@ -16,7 +16,9 @@ MSTEAMS_TEST_NAME = os.getenv("MSTEAMS_TEST_NAME")
 def test_happy_pass():
     assert MSTEAMS_TEST_HOOK
     webhook = TeamsWebhook(MSTEAMS_TEST_HOOK)
-    card = AdaptiveCard(title="Python %s" % sys.version.split(" ")[0], title_style=ContainerStyle.DEFAULT)
+    title = "Python %s" % sys.version.split(" ")[0]
+    print(f"You should now receive an AdaptiveCard with title: {title}")
+    card = AdaptiveCard(title=title, title_style=ContainerStyle.DEFAULT)
     container = Container(style=ContainerStyle.DEFAULT)
 
     card.mention(MSTEAMS_TEST_EMAIL, MSTEAMS_TEST_NAME, add_text_block=True)
