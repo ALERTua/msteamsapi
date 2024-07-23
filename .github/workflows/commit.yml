@@ -63,9 +63,8 @@ jobs:
         # PyYaml 5.4.1 requires cython < 3.0.0 for Python 2.7
       - name: Install dependencies
         run: |
-          python -m pip install "cython<3.0.0"
-          python -m pip install --no-build-isolation pyyaml==5.4.1
-          python -m pip install --no-deps -r requirements.txt
+          echo "cython<3" > /tmp/constraint.txt
+          PIP_CONSTRAINT=/tmp/constraint.txt python -m pip install --no-deps -r requirements.txt
 
       - name: Create .env
         run: |

@@ -37,6 +37,7 @@ pre-commit = [
     { version = "1.21.0", python = "<3" }
 ]
 ruff = { version = "0.5.4", python = ">3" }
+wheel = { version = "0.37.1", python = "<3" }
 
 [[tool.poetry.source]]
 name = "pypi"
