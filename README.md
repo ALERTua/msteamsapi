@@ -4,12 +4,13 @@
 
 # Microsoft Teams AdaptiveCards API Wrapper for Python 2 and 3
 
-Repository: https://github.com/ALERTua/msteamsapi
+##### Repository: https://github.com/ALERTua/msteamsapi
+##### PyPi: https://pypi.org/project/msteamsapi/
 
 ## Usage
 
 - `pip install msteamsapi`
-- Get a Workflow Webhook URL for your MSTeams non-private(!) channel using the standard template.
+- Get a Workflow Webhook URL for your MSTeams non-private(!) channel using the standard template `Post to a channel when a webhook request is received`.
 - Use the Webhook URL to instantiate `TeamsWebhook` class.
 - Fill the `TeamsWebhook` with `AdaptiveCard`.
 - Fill the `AdaptiveCard` with `Container`.
