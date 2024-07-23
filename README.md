@@ -46,3 +46,5 @@ for i, url in enumerate(['https://google.com/', 'https://goo.gle']):
 webhook.add_cards(card)
 webhook.send()
 ```
+
+Your [contribution](CONTRIBUTING.md) is appreciated.

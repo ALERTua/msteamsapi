@@ -33,6 +33,15 @@ Activate Python virtual environments
 #### Install Pre-Commit Hook
 - `pre-commit install`
 
-#### Create Pull Request
+#### Stage Your Changes
+- `git add .`
+
+#### Commit Your Changes
+- `git commit -m "my changes"`
+- The pre-commit hook will tell you if something's wrong
+
+#### Push Your Changes To The Fork
+
+#### Create A Pull Request
 
 Too hard? Contact me via Discord `alertua`
