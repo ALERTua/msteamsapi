@@ -24,6 +24,8 @@ def test_happy_pass():
     card.mention(MSTEAMS_TEST_EMAIL, MSTEAMS_TEST_NAME, add_text_block=True)
     mention_tag = card.mention(MSTEAMS_TEST_EMAIL, "this dude")
 
+    image_url = "https://github.com/ALERTua/msteamsapi/raw/main/tests/test_image.png"
+    container.add_image(image_url, "image alt text")
     container.add_text_block(
         "multiline\n\ntext\n\nmention 1: %s" % mention_tag,
         size=TextSize.DEFAULT,
