@@ -64,6 +64,7 @@ jobs:
         run: |
           echo "cython<3" > /tmp/constraint.txt
           PIP_CONSTRAINT=/tmp/constraint.txt python -m pip install --no-deps -r requirements.txt
+          python -m pip install pytest
 
       - name: Create .env
         run: |
