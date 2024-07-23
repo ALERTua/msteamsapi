@@ -30,34 +30,39 @@ jobs:
       - name: Install dependencies
         run: poetry install
 
+      - name: Create .env
+        run: |
+          echo "MSTEAMS_TEST_HOOK=${{ secrets.MSTEAMS_TEST_HOOK }}" >> ./.env
+          echo "MSTEAMS_TEST_EMAIL=${{ secrets.MSTEAMS_TEST_EMAIL }}" >> ./.env
+          echo "MSTEAMS_TEST_NAME=${{ secrets.MSTEAMS_TEST_NAME }}" >> ./.env
+
       - name: Run tests
-        env:
-          MSTEAMS_TEST_HOOK: ${{ secrets.MSTEAMS_TEST_HOOK }}
-          MSTEAMS_TEST_EMAIL: ${{ secrets.MSTEAMS_TEST_EMAIL }}
-          MSTEAMS_TEST_NAME: ${{ secrets.MSTEAMS_TEST_NAME }}
         run: poetry run tox -e py3
 
   py2:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [2.7]
+        python-version:
+          - pypy2.7
 
     steps:
       - name: Check out the repository
         uses: actions/checkout@v4
 
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
 
       - name: Install dependencies
         run: python -m pip install --no-deps -r requirements.txt
 
+      - name: Create .env
+        run: |
+          echo "MSTEAMS_TEST_HOOK=${{ secrets.MSTEAMS_TEST_HOOK }}" >> ./.env
+          echo "MSTEAMS_TEST_EMAIL=${{ secrets.MSTEAMS_TEST_EMAIL }}" >> ./.env
+          echo "MSTEAMS_TEST_NAME=${{ secrets.MSTEAMS_TEST_NAME }}" >> ./.env
+
       - name: Run tests
-        env:
-          MSTEAMS_TEST_HOOK: ${{ secrets.MSTEAMS_TEST_HOOK }}
-          MSTEAMS_TEST_EMAIL: ${{ secrets.MSTEAMS_TEST_EMAIL }}
-          MSTEAMS_TEST_NAME: ${{ secrets.MSTEAMS_TEST_NAME }}
         run: python -m pytest
