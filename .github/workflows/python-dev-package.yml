@@ -3,6 +3,9 @@ name: TestPyPi
 
 on:
   push:
+    branches:
+      - main
+      - dev
     tags:
       - "v*"
 
