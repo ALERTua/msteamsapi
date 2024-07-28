@@ -1,4 +1,5 @@
-name: DEV Package and TestPyPi Upload
+name: TestPyPi
+
 
 on:
   workflow_dispatch:
