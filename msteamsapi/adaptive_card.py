@@ -40,14 +40,18 @@ class AdaptiveCard(object):
         """
         self.card["body"].append(container.to_dict())
 
-    def add_background(self,
-                       url: str,
-                       fill_mode: BackgroundFillMode = None,
-                       horizontal_alignment: BackgroundHorizontalAlignment = None,
-                       vertical_alignment: BackgroundVerticalAlignment = None,
-                       ):
+    def add_background(self, url, fill_mode, horizontal_alignment, vertical_alignment):
         """
         https://adaptivecards.io/explorer/BackgroundImage.html
+
+        :param url: The URL of the image.
+        :type url: str
+        :param fill_mode: The fill mode of the image.
+        :type fill_mode: BackgroundFillMode
+        :param horizontal_alignment: The horizontal alignment of the image.
+        :type horizontal_alignment: BackgroundHorizontalAlignment
+        :param vertical_alignment: The vertical alignment of the image.
+        :type vertical_alignment: BackgroundVerticalAlignment
         """
         kw = dict(url=url)
         if fill_mode:
