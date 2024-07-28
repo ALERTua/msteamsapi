@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 import json
-from msteamsapi.enums import ContainerStyle, TextSize
+
 from msteamsapi.container import Container
+from msteamsapi.enums import (ContainerStyle, TextSize, BackgroundVerticalAlignment,
+                              BackgroundHorizontalAlignment, BackgroundFillMode)
 
 
 class AdaptiveCard(object):
@@ -37,6 +39,24 @@ class AdaptiveCard(object):
         :type container: Container
         """
         self.card["body"].append(container.to_dict())
+
+    def add_background(self,
+                       url: str,
+                       fill_mode: BackgroundFillMode = None,
+                       horizontal_alignment: BackgroundHorizontalAlignment = None,
+                       vertical_alignment: BackgroundVerticalAlignment = None,
+                       ):
+        """
+        https://adaptivecards.io/explorer/BackgroundImage.html
+        """
+        kw = dict(url=url)
+        if fill_mode:
+            kw["fillMode"] = fill_mode
+        if horizontal_alignment:
+            kw["horizontalAlignment"] = horizontal_alignment
+        if vertical_alignment:
+            kw["verticalAlignment"] = vertical_alignment
+        self.card["backgroundImage"] = kw
 
     def add_action(self, action_type, title, url):
         """

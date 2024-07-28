@@ -23,3 +23,22 @@ class TextWeight(Enum):
     DEFAULT = "default"
     LIGHTER = "lighter"
     BOLDER = "bolder"
+
+
+class BackgroundFillMode(Enum):
+    COVER = "cover"
+    REPEATHORIZONTALLY = "repeatHorizontally"
+    REPEATVERTICALLY = "repeatVertically"
+    REPEAT = "repeat"
+
+
+class BackgroundHorizontalAlignment(Enum):
+    LEFT = "left"
+    CENTER = "center"
+    RIGHT = "right"
+
+
+class BackgroundVerticalAlignment(Enum):
+    TOP = "top"
+    CENTER = "center"
+    BOTTOM = "bottom"

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 import sys
+import logging
 
 from dotenv import load_dotenv
 
@@ -8,6 +9,9 @@ from msteamsapi import ContainerStyle, FactSet, Container, AdaptiveCard, TeamsWe
 
 load_dotenv()
 
+log = logging.getLogger(__name__)
+
+PYTHON_VERSION = sys.version.split(" ")[0]
 MSTEAMS_TEST_HOOK = os.getenv("MSTEAMS_TEST_HOOK")
 MSTEAMS_TEST_EMAIL = os.getenv("MSTEAMS_TEST_EMAIL")
 MSTEAMS_TEST_NAME = os.getenv("MSTEAMS_TEST_NAME")
@@ -16,9 +20,13 @@ MSTEAMS_TEST_NAME = os.getenv("MSTEAMS_TEST_NAME")
 def test_happy_pass():
     assert MSTEAMS_TEST_HOOK
     webhook = TeamsWebhook(MSTEAMS_TEST_HOOK)
-    title = "Python %s" % sys.version.split(" ")[0]
-    print("You should now receive an AdaptiveCard with title: %s" % title)
+    title = "Python %s" % PYTHON_VERSION
+    log.info("You should now receive an AdaptiveCard with title: %s" % title)
+
     card = AdaptiveCard(title=title, title_style=ContainerStyle.DEFAULT)
+
+    card.add_background(url="https://github.com/ALERTua/msteamsapi/raw/main/tests/background.png")
+
     container = Container(style=ContainerStyle.DEFAULT)
 
     card.mention(MSTEAMS_TEST_EMAIL, MSTEAMS_TEST_NAME, add_text_block=True)
@@ -28,6 +36,20 @@ def test_happy_pass():
     container.add_image(image_url, "image alt text")
     container.add_text_block(
         "multiline\n\ntext\n\nmention 1: %s" % mention_tag,
+        size=TextSize.DEFAULT,
+        weight=TextWeight.DEFAULT,
+        color="default",
+    )
+    container.add_text_block(
+        """Blabla
+
+- item 1
+- item 2
+- item 3
+
+
+[url](https://github.com/ALERTua/msteamsapi)
+        """,
         size=TextSize.DEFAULT,
         weight=TextWeight.DEFAULT,
         color="default",
@@ -44,3 +66,4 @@ def test_happy_pass():
 
     webhook.add_cards(card)
     webhook.send()
+    log.info("Card Sent")
