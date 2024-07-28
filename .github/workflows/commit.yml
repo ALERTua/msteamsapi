@@ -15,6 +15,7 @@ concurrency:
 jobs:
   py3:
     runs-on: ubuntu-latest
+    if: ${{ !startsWith(github.event.head_commit.message, 'WIP') }}
     strategy:
       matrix:
         python-version:
@@ -49,6 +50,7 @@ jobs:
 
   py2:
     runs-on: ubuntu-latest
+    if: ${{ !startsWith(github.event.head_commit.message, 'WIP') }}
     strategy:
       matrix:
         python-version:
