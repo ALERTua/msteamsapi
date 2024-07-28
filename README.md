@@ -31,6 +31,7 @@ from msteamsapi import TeamsWebhook, AdaptiveCard, Container, FactSet, Container
 webhook = TeamsWebhook('your_webhook_url')
 
 card = AdaptiveCard(title='card title', title_style=ContainerStyle.DEFAULT)
+card.add_background(url="https://github.com/ALERTua/msteamsapi/raw/main/tests/background.png")
 
 container = Container(style=ContainerStyle.DEFAULT)
 
