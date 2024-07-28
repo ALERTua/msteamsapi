@@ -8,6 +8,11 @@
 ##### Repository: https://github.com/ALERTua/msteamsapi
 ##### PyPi: https://pypi.org/project/msteamsapi/
 
+[![Package and PyPi Upload](https://github.com/ALERTua/msteamsapi/actions/workflows/python-package.yml/badge.svg)](https://github.com/ALERTua/msteamsapi/actions/workflows/python-package.yml)
+[![DEV Package and TestPyPi Upload](https://github.com/ALERTua/msteamsapi/actions/workflows/python-dev-package.yml/badge.svg)](https://github.com/ALERTua/msteamsapi/actions/workflows/python-dev-package.yml)
+[![Commit Checks](https://github.com/ALERTua/msteamsapi/actions/workflows/commit.yml/badge.svg)](https://github.com/ALERTua/msteamsapi/actions/workflows/commit.yml)
+
+
 ## Usage
 
 - `pip install msteamsapi`
