@@ -4,10 +4,7 @@ name: TestPyPi
 on:
   push:
     branches:
-#      - main
       - dev
-    tags:
-      - "v*"
 
   workflow_dispatch:
 
@@ -18,8 +15,8 @@ concurrency:
 
 jobs:
   build:
+    if: ${{ startsWith(github.event.head_commit.message, 'v') }}
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
       - name: Build and publish to pypi
