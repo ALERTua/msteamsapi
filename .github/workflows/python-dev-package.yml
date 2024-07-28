@@ -2,6 +2,10 @@ name: TestPyPi
 
 
 on:
+  push:
+    tags:
+      - "v*"
+
   workflow_dispatch:
 
 concurrency:
