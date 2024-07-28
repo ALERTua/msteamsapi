@@ -40,7 +40,7 @@ class AdaptiveCard(object):
         """
         self.card["body"].append(container.to_dict())
 
-    def add_background(self, url, fill_mode, horizontal_alignment, vertical_alignment):
+    def add_background(self, url, fill_mode=None, horizontal_alignment=None, vertical_alignment=None):
         """
         https://adaptivecards.io/explorer/BackgroundImage.html
 
