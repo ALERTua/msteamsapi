@@ -2,11 +2,10 @@ name: TestPyPi
 
 
 on:
-  push:
-    branches:
-      - dev
-
   workflow_dispatch:
+  push:
+    tags:
+      - "v*"
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}

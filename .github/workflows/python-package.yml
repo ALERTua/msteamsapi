@@ -2,11 +2,7 @@ name: PyPi
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
-    tags:
-      - "v*"
+
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
