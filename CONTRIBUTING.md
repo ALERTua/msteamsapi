@@ -1,6 +1,6 @@
 ## Contributing
 
-#### Fork this repository
+#### Fork the `dev` branch of this repository
 
 #### Install both Python 2 and Python 3
 #### Set Up Development Environment
