@@ -1,9 +1,17 @@
-# -*- coding: utf-8 -*-
+"""Adaptive card class module."""
+
 import json
+from typing import TYPE_CHECKING
 
 from msteamsapi.container import Container
-from msteamsapi.enums import (ContainerStyle, TextSize, BackgroundVerticalAlignment,
-                              BackgroundHorizontalAlignment, BackgroundFillMode)
+from msteamsapi.enums import ContainerStyle, TextSize
+
+if TYPE_CHECKING:
+    from msteamsapi.enums import (  # noqa: F401
+        BackgroundFillMode,
+        BackgroundHorizontalAlignment,
+        BackgroundVerticalAlignment,
+    )
 
 
 class AdaptiveCard(object):
@@ -12,8 +20,10 @@ class AdaptiveCard(object):
     def __init__(self, title=None, title_style=ContainerStyle.DEFAULT, width="Full"):
         """
 
-        @type title: str or unicode
+        @type title: str
         @type title_style: ContainerStyle
+        @param width: The width of the MSTeams card.
+        @type width: str
         """
         self.card = {
             "type": "AdaptiveCard",
@@ -78,9 +88,9 @@ class AdaptiveCard(object):
         Add a button to the adaptive card.
 
         :param title: The title of the button.
-        :type title: str or unicode
+        :type title: str
         :param url: The URL the button points to.
-        :type url: str or unicode
+        :type url: str
         """
         action = dict(title=title, url=url, type="Action.OpenUrl")
         self.card["actions"].append(action)

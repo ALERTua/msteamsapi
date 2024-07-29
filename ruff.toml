@@ -14,9 +14,31 @@ exclude = [
 ]
 
 [lint]
-
+select = [
+    "ALL",
+]
+ignore = [
+    "UP031", # percent
+    "G002", # percent
+    "UP004", # class inherits from object
+    "TRY002", # own exception
+    "D212", # Multi-line docstring summary should start at the first line
+    "ANN201", # Missing return type annotation
+    "ANN202", # Missing return type annotation
+    "ANN001", # Missing type annotation
+    "ANN002", # Missing type annotation
+    "ANN204", # Missing type annotation
+    "C408", # Unnecessary `dict` call (rewrite as a literal)
+    "D415", # First line should end with a period
+    "D400", # First line should end with a period
+    "D205", # 1 blank line required between summary line and description
+    "D203", # 1 blank line required before class docstring
+]
 [lint.per-file-ignores]
-"__init__.py" = ["F401"]
+"__init__.py" = ["F401", "D104"]
+"tests/*.py" = ["S101", "D103", "ANN201", "D100"]
+"msteamsapi/enums.py" = ["D101"]
+"msteamsapi/adaptive_card.py" = ["FBT002"]
 
 [lint.flake8-quotes]
 docstring-quotes = "double"

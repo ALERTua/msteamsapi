@@ -1,11 +1,10 @@
-# -*- coding: utf-8 -*-
+import logging
 import os
 import sys
-import logging
 
 from dotenv import load_dotenv
 
-from msteamsapi import ContainerStyle, FactSet, Container, AdaptiveCard, TeamsWebhook, TextSize, TextWeight
+from msteamsapi import AdaptiveCard, Container, ContainerStyle, FactSet, TeamsWebhook, TextSize, TextWeight
 
 load_dotenv()
 

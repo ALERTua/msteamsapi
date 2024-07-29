@@ -1,4 +1,5 @@
-# -*- coding: utf-8 -*-
+"""Enums."""
+
 from enum import Enum
 
 
