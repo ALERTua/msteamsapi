@@ -27,12 +27,32 @@ ignore = [
     "ANN202", # Missing return type annotation
     "ANN001", # Missing type annotation
     "ANN002", # Missing type annotation
+    "ANN003", # Missing type annotation
     "ANN204", # Missing type annotation
     "C408", # Unnecessary `dict` call (rewrite as a literal)
     "D415", # First line should end with a period
     "D400", # First line should end with a period
     "D205", # 1 blank line required between summary line and description
-    "D203", # 1 blank line required before class docstring
+    "ANN101", # Missing type annotation for `self` in method
+    "ANN401", # Dynamically typed expressions (typing.Any) are disallowed
+    "D203", # no-blank-line-before-class (incompatible with formatter)
+    "D212", # multi-line-summary-first-line (incompatible with formatter)
+    "FIX002", # Line contains TODO, consider resolving an issue
+    "TD003", # Missing issue link on the line following this TODO
+    "D103", # docstring
+    "D101", # docstring
+    "D102", # docstring
+    "D105", # docstring
+    "D100", # docstring
+    "D107", # docstring
+    "ANN205", # docstring
+    "ANN206", # docstring
+    "S101", # assert usage
+    "I001", # assert usage
+    "G004", # Logging statement uses f-string
+    "RET503", # Missing explicit `return` at the end of function able to return non-`None` value
+    "PLR0911", # Too many returns
+    "TD002", # Missing author in TODO
 ]
 [lint.per-file-ignores]
 "__init__.py" = ["F401", "D104"]
