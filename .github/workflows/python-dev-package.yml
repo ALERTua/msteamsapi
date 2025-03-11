@@ -3,9 +3,9 @@ name: TestPyPi
 
 on:
   workflow_dispatch:
-  push:
-    tags:
-      - "v*"
+#  push:
+#    tags:
+#      - "v*"
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   build:
-    if: ${{ startsWith(github.event.head_commit.message, 'v') }}
+#    if: ${{ startsWith(github.event.head_commit.message, 'v') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
