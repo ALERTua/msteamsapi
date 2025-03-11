@@ -50,14 +50,14 @@ pre-commit = [
 ruff = { version = "^0.5.4", python = ">3" }
 wheel = { version = "==0.37.1", python = "<3" }
 
-[[tool.poetry.source]]
-name = "pypi"
-priority = "primary"
-
-[[tool.poetry.source]]
-name = "testpypi"
-url = "https://test.pypi.org/simple/"
-priority = "explicit"
+#[[tool.poetry.source]]
+#name = "pypi"
+#priority = "primary"
+#
+#[[tool.poetry.source]]
+#name = "testpypi"
+#url = "https://test.pypi.org/simple/"
+#priority = "explicit"
 
 [build-system]
 requires = ["poetry-core"]
