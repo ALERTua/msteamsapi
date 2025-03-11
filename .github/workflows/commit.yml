@@ -13,46 +13,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  py3:
-    runs-on: ubuntu-latest
-    if: ${{ !startsWith(github.event.head_commit.message, 'WIP') }}
-    strategy:
-      matrix:
-        python-version:
-          - "3.9"
-          - "3.10"
-          - "3.11"
-          - "3.12"
-          - "3.13"
-
-    steps:
-      - name: Check out the repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
-        with:
-          python-version: ${{ matrix.python-version }}
-
-      - name: Install Poetry
-        run: |
-          python3 -m pip install "poetry==2.1.1" "virtualenv==20.26.6"
-          python3 -m poetry -V
-
-      - name: Install dependencies
-        run: python3 -m poetry install --with=dev
-
-      - name: Create .env
-        run: |
-          echo "MSTEAMS_TEST_HOOK=${{ secrets.MSTEAMS_TEST_HOOK }}" >> ./.env
-          echo "MSTEAMS_TEST_EMAIL=${{ secrets.MSTEAMS_TEST_EMAIL }}" >> ./.env
-          echo "MSTEAMS_TEST_NAME=${{ secrets.MSTEAMS_TEST_NAME }}" >> ./.env
-
-      - name: Run tests
-        run: python3 -m poetry run tox -e py3
-
   py2:
-    needs: py3  # only run py2 if py3 succeeded
     runs-on: ubuntu-latest
     if: ${{ !startsWith(github.event.head_commit.message, 'WIP') }}
     strategy:
@@ -84,3 +45,43 @@ jobs:
 
       - name: Run tests
         run: python -m pytest
+
+  py3:
+    needs: py2  # only run if py2 succeeded
+    runs-on: ubuntu-latest
+    if: ${{ !startsWith(github.event.head_commit.message, 'WIP') }}
+    strategy:
+      matrix:
+        python-version:
+          - "3.9"
+          - "3.10"
+          - "3.11"
+          - "3.12"
+          - "3.13"
+          - "3.14"
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install Poetry
+        run: |
+          python3 -m pip install "poetry==2.1.1" "virtualenv==20.26.6"
+          python3 -m poetry -V
+
+      - name: Install dependencies
+        run: python3 -m poetry install --with=dev
+
+      - name: Create .env
+        run: |
+          echo "MSTEAMS_TEST_HOOK=${{ secrets.MSTEAMS_TEST_HOOK }}" >> ./.env
+          echo "MSTEAMS_TEST_EMAIL=${{ secrets.MSTEAMS_TEST_EMAIL }}" >> ./.env
+          echo "MSTEAMS_TEST_NAME=${{ secrets.MSTEAMS_TEST_NAME }}" >> ./.env
+
+      - name: Run tests
+        run: python3 -m poetry run tox -e py3
