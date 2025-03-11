@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+    rev: v5.0.0
     hooks:
       - id: check-merge-conflict
       - id: check-added-large-files
@@ -13,14 +13,14 @@ repos:
       - id: mixed-line-ending
       - id: trailing-whitespace
 
-#  - repo: https://github.com/asottile/pyupgrade
-#    rev: v3.16.0
-#    hooks:
-#      - id: pyupgrade
-#        args: ["--keep-percent-format"]
+  #  - repo: https://github.com/asottile/pyupgrade
+  #    rev: v3.16.0
+  #    hooks:
+  #      - id: pyupgrade
+  #        args: ["--keep-percent-format"]
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.5.4
+    rev: v0.9.10
     hooks:
       # Run the linter.
       - id: ruff
@@ -29,10 +29,19 @@ repos:
       - id: ruff-format
 
   - repo: https://github.com/python-poetry/poetry
-    rev: '1.8.0'
+    rev: '2.1.1'
     hooks:
-    -   id: poetry-check
-    -   id: poetry-lock
-    -   id: poetry-install
-    -   id: poetry-export
-        args: ["-f", "requirements.txt", "--output", "requirements.txt", "--without-hashes", "--with=dev"]
+      - id: poetry-check
+      - id: poetry-lock
+      - id: poetry-install
+
+  - repo: https://github.com/python-poetry/poetry-plugin-export
+    rev: '1.9.0'
+    hooks:
+    - id: poetry-export
+      args: [ "-f", "requirements.txt", "--output", "requirements.txt", "--without-hashes", "--with=dev" ]
+
+  - repo: https://codeberg.org/lig/todo-md.git
+    rev: v2.0.3
+    hooks:
+      - id: todo-md

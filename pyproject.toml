@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "msteamsapi"
-version = "0.9.3"
+version = "0.9.4"
 description = "Microsoft Teams AdaptiveCards API Wrapper for Python 2 and 3"
 authors = ["Alexey Rubasheff <alexey.rubasheff@gmail.com>"]
 readme = "README.md"
@@ -17,6 +17,7 @@ classifiers = [
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
 ]
 
 [tool.poetry.dependencies]
