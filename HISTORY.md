@@ -6,7 +6,7 @@ History
 0.9.4 (2025-03-11)
 ------------------
 
-* Python 3.13 Support
+* Python 3.13 and 3.14 Support
 
 
 * 0.9.3 (2024-07-28)
