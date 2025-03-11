@@ -35,10 +35,12 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Install Poetry
-        run: python3 -m pip install "poetry<2.1.1" virtualenv==20.21.1
+        run: |
+          python3 -m pip install "poetry==2.1.1" "virtualenv==20.26.3"
+          python3 -m poetry -V
 
       - name: Install dependencies
-        run: poetry install
+        run: python3 -m poetry install --with=dev
 
       - name: Create .env
         run: |
@@ -47,9 +49,10 @@ jobs:
           echo "MSTEAMS_TEST_NAME=${{ secrets.MSTEAMS_TEST_NAME }}" >> ./.env
 
       - name: Run tests
-        run: poetry run tox -e py3
+        run: python3 -m poetry run tox -e py3
 
   py2:
+    needs: py3  # only run py2 if py3 succeeded
     runs-on: ubuntu-latest
     if: ${{ !startsWith(github.event.head_commit.message, 'WIP') }}
     strategy:
