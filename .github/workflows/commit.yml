@@ -52,13 +52,13 @@ jobs:
     if: ${{ !startsWith(github.event.head_commit.message, 'WIP') }}
     strategy:
       matrix:
-        python-version:
+        python-version:  # https://raw.githubusercontent.com/actions/python-versions/main/versions-manifest.json
           - "3.9"
           - "3.10"
           - "3.11"
           - "3.12"
           - "3.13"
-          - "3.14"
+          - "3.14.0-alpha.5"
 
     steps:
       - name: Check out the repository
