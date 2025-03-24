@@ -4,9 +4,8 @@ on:
   push:
     branches:
       - '**'
-  pull_request:
-    branches:
-      - '**'
+    paths-ignore:
+      - '.pre-commit-config.yaml'
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
