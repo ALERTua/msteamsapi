@@ -41,7 +41,7 @@ mention_tag = card.mention('EMAIL', 'mention text')
 container.add_image("image url", "image alt text")
 container.add_text_block(
     'multiline\n\ntext\n\nmention 1: %s' % mention_tag,
-    size=TextSize.DEFAULT, weight=TextWeight.DEFAULT, color="default"
+    size=TextSize.DEFAULT, weight=TextWeight.DEFAULT, color="default", wrap=True
 )
 
 factset = FactSet(('fact 1', 'fact 1 value'))

@@ -36,7 +36,7 @@ class Container(object):  # https://adaptivecards.io/explorer
         """
         self._add_item(fact_set.payload)
 
-    def add_text_block(self, text, size=TextSize.DEFAULT, weight=TextWeight.DEFAULT, color="default"):
+    def add_text_block(self, text, size=TextSize.DEFAULT, weight=TextWeight.DEFAULT, color="default", wrap=None):
         """
         Add a text block to the container.
 
@@ -48,7 +48,10 @@ class Container(object):  # https://adaptivecards.io/explorer
         :param weight: The weight of the text block (default: "default").
         :param color: The color of the text block (default: "default").
         """
-        text_block = dict(type="TextBlock", text=text, size=size.value, weight=weight.value, color=color)
+        if wrap is None:
+            wrap = False
+
+        text_block = dict(type="TextBlock", text=text, size=size.value, weight=weight.value, color=color, wrap=wrap)
         self._add_item(text_block)
 
     def add_image(self, url, alt_text="Image"):
