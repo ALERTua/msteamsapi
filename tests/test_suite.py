@@ -39,20 +39,22 @@ def test_happy_pass():
         weight=TextWeight.DEFAULT,
         color="default",
     )
-    container.add_text_block(
-        """Blabla
+    bla = "bla" * 100
+    for wrap in [True, False, None]:
+        container.add_text_block(
+            """Blabla Wrap: %s
 
-- item 1
+- item 1 %s
 - item 2
 - item 3
 
-
-[url](https://github.com/ALERTua/msteamsapi)
-        """,
-        size=TextSize.DEFAULT,
-        weight=TextWeight.DEFAULT,
-        color="default",
-    )
+[url](https://github.com/ALERTua/msteamsapi)"""
+            % (wrap, bla),
+            size=TextSize.DEFAULT,
+            weight=TextWeight.DEFAULT,
+            color="default",
+            wrap=wrap,
+        )
 
     factset = FactSet(("fact 1", "fact 1 value"))
     factset.add_facts(("fact 2", "fact 2 value"), ("fact 3", "fact 3 value"))

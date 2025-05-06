@@ -47,6 +47,7 @@ class Container(object):  # https://adaptivecards.io/explorer
         :param size: The size of the text block (default: "default").
         :param weight: The weight of the text block (default: "default").
         :param color: The color of the text block (default: "default").
+        :param wrap: Whether to wrap the text block (default: "default").
         """
         if wrap is None:
             wrap = False
