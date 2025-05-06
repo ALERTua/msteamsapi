@@ -9,7 +9,7 @@ History
 * Python 3.13 and 3.14 Support
 
 
-* 0.9.3 (2024-07-28)
+0.9.3 (2024-07-28)
 ------------------
 
 * Card Background Support
