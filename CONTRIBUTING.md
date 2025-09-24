@@ -19,6 +19,9 @@ Activate Python virtual environments
 - Linux: `source .venv/bin/activate`
 - Windows `.venv\Scripts\activate`
 
+Install prerequisites
+- `poetry install`
+
 #### Make your modifications
 
 #### Re-create Poetry Lock File, if you modified the requirements
